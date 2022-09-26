@@ -1,0 +1,1 @@
+unittest/src/NameError1.cls4:3:9:  NameError: 'y' is not declared in this scope

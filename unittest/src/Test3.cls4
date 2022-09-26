@@ -1,0 +1,4 @@
+// 文字列の結合
+string s1 = "abcd", s2 = "ef";
+s1 = s1 + s2;
+println(s1);

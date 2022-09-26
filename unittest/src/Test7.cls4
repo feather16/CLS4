@@ -1,0 +1,9 @@
+// continue
+int i = 0;
+while(i < 20){
+    i += 1;
+    if(i % 3 == 2){
+        continue;
+    }
+    println(i);
+}

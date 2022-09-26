@@ -1,0 +1,167 @@
+仮の仕様
+
+【プリミティブ型】
+int		= System.Int64		: 64ビット整数
+float	= System.Float64	: 64ビット浮動小数点数
+bool	= System.Bool		: 論理型
+char	= System.Char		: 文字型
+string	= System.String		: 文字列型
+
+【演算子】
+
+[優先順位 1] - 左結合
+a[b]
+a(b)
+a.b
+a++
+a--
+
+[優先順位 2] - 右結合
+++a
+--a
++a
+-a
+!a
+~a
+(type)a
+
+[優先順位 3] -　左結合
+a*b
+a/b
+a%b
+
+[優先順位 4] - 左結合
+a+b
+a-b
+
+[優先順位 5] - 左結合
+a<<b
+a>>b
+
+[優先順位 6] - 左結合
+a<b
+a<=b
+a>b
+a>=b
+
+[優先順位 7] - 左結合
+a==b
+a!=b
+
+[優先順位 8] - 左結合
+a&b
+
+[優先順位 9] - 左結合
+a^b
+
+[優先順位 10] - 左結合
+a|b
+
+[優先順位 11] - 左結合
+a&&b
+
+[優先順位 12] - 左結合
+a^^b
+
+[優先順位 13] - 左結合
+a||b
+
+[優先順位 14] - 右結合
+a?b:c
+a=b
+a+=b
+a-=b
+a*=b
+a/=b
+a%=b
+a<<=b
+a>>=b
+a&=b
+a^=b
+a|=b
+
+[優先順位 15] - 左結合
+a,b
+
+[オーバーロード可能な演算子]
+クラス内(Type)
+public T& operator[](const U& _arg); 
+public Type operator++();
+public Type operator--();
+public Type operator+();
+public Type operator-();
+public Type operator!();
+public Type operator~();
+public bool operator true();
+
+クラス外
+public T operator*(const U& _arg1, const V& _arg2);
+public T operator/(const U& _arg1, const V& _arg2);
+public T operator%(const U& _arg1, const V& _arg2);
+public T operator+(const U& _arg1, const V& _arg2);
+public T operator-(const U& _arg1, const V& _arg2);
+public T operator<<(const U& _arg1, const V& _arg2);
+public T operator>>(const U& _arg1, const V& _arg2);
+public bool operator<(const U& _arg1, const V& _arg2);
+public bool operator==(const U& _arg1, const V& _arg2);
+public T operator&(const U& _arg1, const V& _arg2);
+public T operator^(const U& _arg1, const V& _arg2);
+public T operator|(const U& _arg1, const V& _arg2);
+
+【組み込み】
+namespace System{
+	const FileDescriptor stdin;
+	const FileDescriptor stdout;
+	const FileDescriptor stderr;
+
+	public void print(const object& _obj){
+		print(stdout, _obj.toString());
+	}
+	
+	public void print(const FileDescriptor& _fd, const string& _str);
+	
+	class int{
+		public static int parse(const string& _str);
+		
+		public int(const float& _f);
+		
+		public int operator++(){
+			return this += 1;
+		}
+		public int operator--(){
+			return this -= 1;
+		}
+		public int operator+(){
+			return this;
+		}
+		public int operator-(){
+			return this * (-1);
+		}
+		
+		public string toString();
+	}
+	
+	class float{
+		public static float parse(const string& _str);
+		
+		public float(const int& _i);
+	
+		public int operator+(){
+			return this;
+		}
+		public int operator-(){
+			return this * (-1);
+		}
+		
+		public string toString();
+	}
+	
+	public int operator*(const int& _arg1, const int& _arg2);
+	public float operator*(const int& _arg1, const float& _arg2){
+		return float(_arg1) * _arg2;
+	}
+	public float operator*(const float& _arg1, const int& _arg2){
+		return _arg1 * float(_arg2);
+	}
+	public float operator*(const float& _arg1, const float& _arg2);
+}

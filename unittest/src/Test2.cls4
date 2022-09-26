@@ -1,0 +1,5 @@
+// 四則演算
+println(1 + 12 * 2);
+println(5 / 2 - 9);
+println(3 * 4 * 9);
+println(17 / 3 / 1);

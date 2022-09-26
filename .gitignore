@@ -1,0 +1,5 @@
+.vscode/
+*.o
+
+/unittest/out/*.txt
+/unittest/tree/*.txt

@@ -1,0 +1,27 @@
+program = [statement | func_decl] *
+func_decl = type_name func_name "(" ")" "{" statement_list * "}"
+statement_list = statement *
+statement = basic_statement | if_statement | while_statement
+basic_statement = [var_decl | assignment_like | expression | built_in_procedure | "break" | "continue" | "return"] ";"
+if_statement = "if" "(" expression ")" ["{" statement_list "}" | statement] ["else" ["{" statement_list "}" | statement]] ?
+while_statement = "while" "(" expression ")" ["{" statement_list "}" | statement]
+var_decl = type_name var_name ["=" expression] ["," var_name ["=" expression]] *
+assignment_like = var_name ["=" | "+=" | "-=" | "*=" | "/=" | "%="] expression
+expression = simple_expression [relational_operator simple_expression] *
+simple_expression = term [additive_operator term] *
+term = factor [multiplicative_operator factor] *
+factor = literal | var_name | built_in_func | func_call
+additive_operator = "+" | "-"
+multiplicative_operator = "*" | "/" | "%"
+relational_operator = "==" | "!=" | "<" | "<=" | ">" | ">="
+func_call = func_name "(" ")"
+built_in_func =
+    "input_int" "(" ")"
+built_in_procedure = 
+    "print" "(" [expression ["," expression] *] ? ")" | 
+    "println" "(" [expression ["," expression] *] ? ")"
+type_name = "int" | "string" | "bool"
+func_name = regex([a-zA-Z_]\w*)
+var_name = regex([a-zA-Z_]\w*)
+literal = uint_literal | string_literal | "true" | "false"
+uint_literal = regex(\d+)

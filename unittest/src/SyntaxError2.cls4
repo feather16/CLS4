@@ -1,0 +1,6 @@
+// 関数の外でreturn
+
+string s = "abc";
+println(s);
+return;
+println(s);

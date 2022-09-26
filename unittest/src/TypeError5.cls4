@@ -1,0 +1,5 @@
+// if文の条件式にint
+int i = 15;
+if(i){
+    println(i);
+}

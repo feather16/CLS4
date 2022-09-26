@@ -1,0 +1,4 @@
+// int <- string
+int x;
+x = "hello";
+println(x);

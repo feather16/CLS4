@@ -1,0 +1,1 @@
+unittest/src/TypeError3.cls4:5:5:  TypeError: Cannot assign 'int' to 'bool'

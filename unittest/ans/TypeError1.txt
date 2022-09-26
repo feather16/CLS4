@@ -1,0 +1,1 @@
+unittest/src/TypeError1.cls4:3:5:  TypeError: Cannot assign 'string' to 'int'

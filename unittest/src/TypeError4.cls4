@@ -1,0 +1,4 @@
+// int + string
+int i = 28;
+string s = "hoge";
+println(i + s);

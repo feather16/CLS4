@@ -1,0 +1,4 @@
+// bool型変数
+bool b1 = true, b2 = false;
+println(b1);
+println(b2);

@@ -1,0 +1,13 @@
+// void関数の呼び出し
+void main(){
+    println(i);
+    int i = 16;
+    string s = "hello";
+    println(s, " ", i);
+    return;
+    print("Not reached");
+}
+
+int i = 5;
+main();
+println(i);

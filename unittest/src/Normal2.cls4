@@ -1,0 +1,17 @@
+// n以下の素数を列挙
+int i = 2, n = input_int();
+while(i <= n){
+    int j = 2;
+    bool is_prime = true;
+    while(j <= i / 2){
+        if(i % j == 0){
+            is_prime = false;
+            break;
+        }
+        j += 1;
+    }
+    if(is_prime){
+        print(i, " ");
+    }
+    i += 1;
+}

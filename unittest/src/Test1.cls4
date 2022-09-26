@@ -1,0 +1,11 @@
+// 変数から変数への代入
+int x = 2, y = 3;
+println(x);
+println(y);
+y = x;
+println(y);
+y = 5;
+x = y;
+x = x;
+println(x);
+println(y);

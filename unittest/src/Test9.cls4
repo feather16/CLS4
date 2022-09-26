@@ -1,0 +1,16 @@
+// スコープのチェック
+int i = 1;
+while(true){
+    println(i);
+    int i = 2;
+    println(i);
+    while(true){
+        println(i);
+        int i = 3;
+        println(i);
+        break;
+    }
+    println(i);
+    break;
+}
+println(i);

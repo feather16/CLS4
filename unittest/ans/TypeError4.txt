@@ -1,0 +1,1 @@
+unittest/src/TypeError4.cls4:4:11:  TypeError: Unsupported operand type(s) for +: 'int' and 'string'

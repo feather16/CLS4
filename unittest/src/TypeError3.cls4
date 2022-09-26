@@ -1,0 +1,6 @@
+// int <- bool
+bool b;
+int x;
+x = 19;
+b = x;
+println(b);

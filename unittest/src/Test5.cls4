@@ -1,0 +1,7 @@
+// stringとboolに対する比較演算子
+string s1 = "ab", s2 = "bd";
+bool b1 = true, b2 = false;
+println(s1 > s2);
+println(s1 < s2);
+println(b1 == b2);
+println(b1 != b2);

@@ -1,0 +1,8 @@
+// ループの外でbreak
+int x = 0;
+if(x == 0){
+    x = 1;
+    break;
+    x = 2;
+}
+println(x);
