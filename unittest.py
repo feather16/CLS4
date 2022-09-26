@@ -47,6 +47,11 @@ for test_case in test_cases:
     else: # 標準入力なし
         command = f'{INTERPRETER} {src_file_path} {tree_file_path} > {out_file_path} 2>&1'
     os.system(command)
+
+    # ansファイルが存在しない場合に作成
+    if not os.path.exists(ans_file_path):
+        with open(ans_file_path, 'w') as f:
+            pass
     
     # 比較
     print(f'{test_case: <{test_case_name_max_length}} ', end='')
