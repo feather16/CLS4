@@ -138,8 +138,9 @@ void SyntaxTree::basic_statement(Node& self){
     }
     // return
     else if(tokens.current().id == Token::Id::sreturn){
-        self.token = tokens.current();
-        tokens.advance();
+        leaf = Node("return_statement");
+        return_statement(leaf);
+        self.add_leaf(leaf);
     }
     // 式
     else{
@@ -389,6 +390,13 @@ void SyntaxTree::func_call(Node& self){
     if(tokens.current().id != Token::Id::srparen){
         throw_syntax_error("Expected ')'");
     }
+    tokens.advance();
+}
+void SyntaxTree::return_statement(Node& self){
+    if(tokens.current().id != Token::Id::sreturn){
+        throw_syntax_error("Expected 'return'");
+    }
+    self.token = tokens.current();
     tokens.advance();
 }
 void SyntaxTree::built_in_func(Node& self){

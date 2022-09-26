@@ -36,6 +36,7 @@ class Interpreter{
     void multiplicative_operator(Node&);
     void relational_operator(Node&);
     void func_call(Node&);
+    void return_statement(Node&);
     void built_in_func(Node&);
     void built_in_procedure(Node&);
     void literal(Node&);

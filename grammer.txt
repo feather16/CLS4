@@ -2,7 +2,7 @@ program = [statement | func_decl] *
 func_decl = type_name func_name "(" ")" "{" statement_list * "}"
 statement_list = statement *
 statement = basic_statement | if_statement | while_statement
-basic_statement = [var_decl | assignment_like | expression | built_in_procedure | "break" | "continue" | "return"] ";"
+basic_statement = [var_decl | assignment_like | expression | built_in_procedure | return_statement | "break" | "continue"] ";"
 if_statement = "if" "(" expression ")" ["{" statement_list "}" | statement] ["else" ["{" statement_list "}" | statement]] ?
 while_statement = "while" "(" expression ")" ["{" statement_list "}" | statement]
 var_decl = type_name var_name ["=" expression] ["," var_name ["=" expression]] *
@@ -15,6 +15,7 @@ additive_operator = "+" | "-"
 multiplicative_operator = "*" | "/" | "%"
 relational_operator = "==" | "!=" | "<" | "<=" | ">" | ">="
 func_call = func_name "(" ")"
+return_statement = "return"
 built_in_func =
     "input_int" "(" ")"
 built_in_procedure = 

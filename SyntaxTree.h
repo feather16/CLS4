@@ -29,6 +29,7 @@ class SyntaxTree{
     void additive_operator(Node&);
     void multiplicative_operator(Node&);
     void func_call(Node&);
+    void return_statement(Node&);
     void built_in_func(Node&);
     void built_in_procedure(Node&);
     void relational_operator(Node&);

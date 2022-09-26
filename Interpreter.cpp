@@ -78,9 +78,6 @@ void Interpreter::basic_statement(Node& self){
         if(self.token.is_loop_control()){
             throw LoopControl(self.token);
         }
-        else if(self.token.id == Token::Id::sreturn){
-            throw Return(self.token);
-        }
     }
 
     if(self[0].id == Node::Id::var_decl){
@@ -94,6 +91,9 @@ void Interpreter::basic_statement(Node& self){
     }
     else if(self[0].id == Node::Id::built_in_procedure){
         built_in_procedure(self[0]);
+    }
+    else if(self[0].id == Node::Id::return_statement){
+        return_statement(self[0]);
     }
     else{
         fatal_error("in basic_statement");
@@ -381,6 +381,9 @@ void Interpreter::func_call(Node& self){
         //
     }
     symbol_table.out_func();
+}
+void Interpreter::return_statement(Node& self){
+    throw Return(self.token);
 }
 void Interpreter::built_in_func(Node& self){
     string func_name = self.token.str;

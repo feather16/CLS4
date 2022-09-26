@@ -25,6 +25,7 @@ class Node{
         func_name,
         var_name,
         func_call,
+        return_statement,
         built_in_func,
         built_in_procedure,
         literal,
@@ -71,6 +72,7 @@ class Node{
         NODE_ID_ARRANGE(func_name)
         NODE_ID_ARRANGE(var_name)
         NODE_ID_ARRANGE(func_call)
+        NODE_ID_ARRANGE(return_statement)
         NODE_ID_ARRANGE(built_in_func)
         NODE_ID_ARRANGE(built_in_procedure)
         NODE_ID_ARRANGE(literal)
@@ -96,6 +98,7 @@ class Node{
         NODE_ID_ARRANGE_R(func_name)
         NODE_ID_ARRANGE_R(var_name)
         NODE_ID_ARRANGE_R(func_call)
+        NODE_ID_ARRANGE_R(return_statement)
         NODE_ID_ARRANGE_R(built_in_func)
         NODE_ID_ARRANGE_R(built_in_procedure)
         NODE_ID_ARRANGE_R(literal)
