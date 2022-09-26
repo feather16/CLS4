@@ -1,0 +1,7 @@
+# テストの優先順位
+Normal
+Test
+SyntaxError
+TypeError
+NameError
+ZeroDivisionError

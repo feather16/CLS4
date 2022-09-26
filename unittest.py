@@ -23,10 +23,19 @@ TREE_DIR = f'{CURRENT_DIR}/unittest/tree'
 
 INTERPRETER = 'cls4'
 
+# テストの優先順位
+with open(f'{CURRENT_DIR}/unittest/test_priority.txt', encoding='utf-8') as f:
+    test_priority = [line.strip() for line in f.readlines() \
+        if len(line) > 0 and not line.startswith('#')]
+
+# テストケース名(優先順位でソート)
 test_cases = [os.path.splitext(file)[0] for file in os.listdir(SRC_DIR)]
 test_cases.sort(
-    key=lambda s: (not s.startswith('Normal'), not s.startswith('Test'), s)
+    key=lambda s: (
+        [not s.startswith(text) for text in test_priority] + [s]
+    )
 )
+
 test_case_name_max_length = max(len(test_case) for test_case in test_cases)
 extension_set = {os.path.splitext(file)[1] for file in os.listdir(SRC_DIR)}
 assert len(extension_set) == 1, f'Error: multiple extensions {extension_set}'
