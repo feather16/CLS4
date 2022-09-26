@@ -1,7 +1,7 @@
 # ユニットテストを行う
 
 import os
-from re import sub
+from re import sub, template
 import subprocess
 
 def file_equal(path1: str, path2: str) -> bool:
@@ -42,6 +42,7 @@ assert len(extension_set) == 1, f'Error: multiple extensions {extension_set}'
 extension = extension_set.pop()
 
 diffs: list[tuple[str, str]] = []
+descriptions: list[str] = []
 
 for test_case in test_cases:
     src_file_path = f'{SRC_DIR}/{test_case}{extension}'
@@ -76,6 +77,7 @@ for test_case in test_cases:
     except:
         pass
     print(f' : {description}')
+    descriptions.append(description)
 
 # 結果表示
 print('')
@@ -91,3 +93,16 @@ print('')
 for test_case, diff in diffs:
     print(f'{test_case}:')
     print(diff)
+
+# ソースコードの説明一覧を自動でファイルに出力
+DESCRIPTION_HEADER = '''\
+<!-- このファイルはユニットテストを実行する度に自動生成されます -->
+# テストプログラムの説明
+|ファイル名|内容|
+|-|-|
+'''
+with open(f'{CURRENT_DIR}/unittest/README.md', 'w', encoding='utf-8') as f:
+    f.write(DESCRIPTION_HEADER)
+    for test_case, description in zip(test_cases, descriptions):
+        file_name = f'{test_case}{extension}'
+        f.write(f'|[{file_name}](unittest/src/{file_name})|{description}|\n')
