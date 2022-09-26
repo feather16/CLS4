@@ -51,17 +51,17 @@ void SyntaxTree::func_decl(Node& self){
     self.add_leaf(leaf);
 
     if(tokens.current().id != Token::Id::slparen){
-        throw_syntax_error("Expected (");
+        throw_syntax_error("Expected '('");
     }
     tokens.advance();
 
     if(tokens.current().id != Token::Id::srparen){
-        throw_syntax_error("Expected )");
+        throw_syntax_error("Expected ')'");
     }
     tokens.advance();
 
     if(tokens.current().id != Token::Id::slbrace){
-        throw_syntax_error("Expected {");
+        throw_syntax_error("Expected '{'");
     }
     tokens.advance();
 
@@ -70,7 +70,7 @@ void SyntaxTree::func_decl(Node& self){
     self.add_leaf(leaf);
 
     if(tokens.current().id != Token::Id::srbrace){
-        throw_syntax_error("Expected }");
+        throw_syntax_error("Expected '}'");
     }
     tokens.advance();
 }
@@ -158,14 +158,14 @@ void SyntaxTree::if_statement(Node& self){
     Node leaf;
     tokens.advance();
     if(tokens.current().id != Token::Id::slparen){
-        throw_syntax_error("Expected (");
+        throw_syntax_error("Expected '('");
     }
     tokens.advance();
     leaf = Node("expression");
     expression(leaf);
     self.add_leaf(leaf);
     if(tokens.current().id != Token::Id::srparen){
-        throw_syntax_error("Expected )");
+        throw_syntax_error("Expected ')'");
     }
     tokens.advance();
 
@@ -176,7 +176,7 @@ void SyntaxTree::if_statement(Node& self){
         statement_list(leaf);
         self.add_leaf(leaf);
         if(tokens.current().id != Token::Id::srbrace){
-            throw_syntax_error("Expected }");
+            throw_syntax_error("Expected '}'");
         }
         tokens.advance();
     }
@@ -199,7 +199,7 @@ void SyntaxTree::if_statement(Node& self){
             statement_list(leaf);
             self.add_leaf(leaf);
             if(tokens.current().id != Token::Id::srbrace){
-                throw_syntax_error("Expected }");
+                throw_syntax_error("Expected '}'");
             }
             tokens.advance();
         }
@@ -216,14 +216,14 @@ void SyntaxTree::while_statement(Node& self){
     Node leaf;
     tokens.advance();
     if(tokens.current().id != Token::Id::slparen){
-        throw_syntax_error("Expected (");
+        throw_syntax_error("Expected '('");
     }
     tokens.advance();
     leaf = Node("expression");
     expression(leaf);
     self.add_leaf(leaf);
     if(tokens.current().id != Token::Id::srparen){
-        throw_syntax_error("Expected )");
+        throw_syntax_error("Expected ')'");
     }
     tokens.advance();
 
@@ -234,7 +234,7 @@ void SyntaxTree::while_statement(Node& self){
         statement_list(leaf);
         self.add_leaf(leaf);
         if(tokens.current().id != Token::Id::srbrace){
-            throw_syntax_error("Expected }");
+            throw_syntax_error("Expected '}'");
         }
         tokens.advance();
     }
