@@ -105,4 +105,4 @@ with open(f'{CURRENT_DIR}/unittest/README.md', 'w', encoding='utf-8') as f:
     f.write(DESCRIPTION_HEADER)
     for test_case, description in zip(test_cases, descriptions):
         file_name = f'{test_case}{extension}'
-        f.write(f'|[{file_name}](unittest/src/{file_name})|{description}|\n')
+        f.write(f'|[{file_name}](src/{file_name})|{description}|\n')
