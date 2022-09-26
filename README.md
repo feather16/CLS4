@@ -84,6 +84,8 @@ while(i <= n){
 
 ### ユニットテスト
 
+各テストプログラムの説明を[unittest/README.md](unittest/README.md)に記載しています。
+
 <img src="image/unittest_image.png" width=400>
 
 ## 製作期間
