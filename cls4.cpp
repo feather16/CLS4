@@ -51,17 +51,6 @@ string get_base_name(string path){
     return path;
 }
 
-void print_tree_to_file(const SyntaxTree& tree, const string& file){
-    ofstream ofstr(file);
-    streambuf* strbuf;
-    // 変更前の値を取得
-    strbuf = cout.rdbuf(ofstr.rdbuf());
-    // 構文木を出力
-    debug::println(tree);
-    // 元に戻す
-    cout.rdbuf(strbuf);
-}
-
 int main(int argc, char* argv[]){
     for(int i = 0; i < argc; i++){
         if(i == 0){
@@ -82,7 +71,8 @@ int main(int argc, char* argv[]){
         tokens = TokenList(argument.filename); // 字句解析
         tree.parse(tokens); // 構文解析
         if(argument.debug_filename != ""){
-            print_tree_to_file(tree, argument.debug_filename);
+            ofstream tree_file(argument.debug_filename);
+            tree_file << tree;
         }
         interpreter.run(tree); // 実行
     }
