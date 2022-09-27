@@ -1,4 +1,3 @@
-#include "debug.h"
 #include "Error.h"
 #include "Token.h"
 #include "TokenList.h"

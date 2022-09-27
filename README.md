@@ -47,7 +47,6 @@ CLS4という名前の由来は「**C**-**L**ike **S**imple and **S**afe **S**ta
 |[Function.h](Function.h)|CLS4の関数を表すクラス|
 |[Type.h](Type.h)|CLS4の型を表すクラス|
 |[Error.cpp](Error.cpp)/[Error.h](Error.h)|CLS4のエラーを表すクラス|
-|[debug.cpp](debug.cpp)/[debug.h](debug.h)|デバッグ用プログラム|
 
 ## 実行例
 
