@@ -17,7 +17,7 @@ using namespace std;
 struct Argument{
     string interpreter;
     string filename;
-    string debug_filename;
+    string tree_filename;
 } argument;
 
 string shape_path(string path){
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]){
             argument.filename = argv[1];
         }
         else if(i == 2){
-            argument.debug_filename = argv[2];
+            argument.tree_filename = argv[2];
         }
     }
 
@@ -69,8 +69,8 @@ int main(int argc, char* argv[]){
     try{
         tokens = TokenList(argument.filename); // 字句解析
         tree.parse(tokens); // 構文解析
-        if(argument.debug_filename != ""){
-            ofstream tree_file(argument.debug_filename);
+        if(argument.tree_filename != ""){
+            ofstream tree_file(argument.tree_filename);
             tree_file << tree;
         }
         interpreter.run(tree); // 実行
