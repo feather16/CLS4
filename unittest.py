@@ -1,7 +1,13 @@
 # ユニットテストを行う
 
+from email import parser
 import os
 import subprocess
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--unittest_dir', type=str)
+args = parser.parse_args()
 
 def file_equal(path1: str, path2: str) -> bool:
     '''
@@ -13,8 +19,9 @@ def file_equal(path1: str, path2: str) -> bool:
         content2 = file2.read().rstrip('\n')
     return content1 == content2
 
-CURRENT_DIR = os.path.dirname(__file__)
-UNITTEST_DIR = f'{CURRENT_DIR}/unittest'
+UNITTEST_DIR = \
+    args.unittest_dir if args.unittest_dir is not None else \
+    f'{os.path.dirname(__file__)}/unittest'
 SRC_DIR = f'{UNITTEST_DIR}/src'
 STDIN_DIR = f'{UNITTEST_DIR}/stdin'
 OUT_DIR = f'{UNITTEST_DIR}/out'
