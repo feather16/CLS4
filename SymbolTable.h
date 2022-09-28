@@ -13,7 +13,7 @@ class SymbolTable{
     void in_func();
     void out_func();
     bool has_var(string&) const;
-    Program::Object get_var(string&);
+    Program::Object get_var(string&) const;
     void set_new_var(string&, const Program::Object&);
     void set_var(string&, const Program::Object&);
     int get_func_depth() const;

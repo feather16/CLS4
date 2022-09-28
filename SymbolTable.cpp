@@ -31,15 +31,15 @@ bool SymbolTable::has_var(string& var_name) const{
     }
     return false;
 }
-Program::Object SymbolTable::get_var(string& var_name){
+Program::Object SymbolTable::get_var(string& var_name) const{
     for(int i = scope_depth; i >= 0; i--){
         if(table[func_depth][i].find(var_name) != table[func_depth][i].end()){
-            return table[func_depth][i][var_name];
+            return table[func_depth][i].at(var_name);
         }
     }
     if(func_depth > 0){
         // グローバル変数
-        return table[0][0][var_name];
+        return table[0][0].at(var_name);
     }
     return Program::Object();
 }
