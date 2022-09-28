@@ -15,16 +15,17 @@ def file_equal(path1: str, path2: str) -> bool:
     return content1 == content2
 
 CURRENT_DIR = os.path.dirname(__file__)
-SRC_DIR = f'{CURRENT_DIR}/unittest/src'
-STDIN_DIR = f'{CURRENT_DIR}/unittest/stdin'
-OUT_DIR = f'{CURRENT_DIR}/unittest/out'
-ANS_DIR = f'{CURRENT_DIR}/unittest/ans'
-TREE_DIR = f'{CURRENT_DIR}/unittest/tree'
+UNITTEST_DIR = f'{CURRENT_DIR}/unittest'
+SRC_DIR = f'{UNITTEST_DIR}/src'
+STDIN_DIR = f'{UNITTEST_DIR}/stdin'
+OUT_DIR = f'{UNITTEST_DIR}/out'
+ANS_DIR = f'{UNITTEST_DIR}/ans'
+TREE_DIR = f'{UNITTEST_DIR}/tree'
 
 INTERPRETER = 'cls4'
 
 # テストの優先順位
-with open(f'{CURRENT_DIR}/unittest/test_priority.txt', encoding='utf-8') as f:
+with open(f'{UNITTEST_DIR}/test_priority.txt', encoding='utf-8') as f:
     test_priority = [line.strip() for line in f.readlines() \
         if len(line) > 0 and not line.startswith('#')]
 
@@ -101,7 +102,7 @@ DESCRIPTION_HEADER = '''\
 |ファイル名|内容|
 |-|-|
 '''
-with open(f'{CURRENT_DIR}/unittest/README.md', 'w', encoding='utf-8') as f:
+with open(f'{UNITTEST_DIR}/README.md', 'w', encoding='utf-8') as f:
     f.write(DESCRIPTION_HEADER)
     for test_case, description in zip(test_cases, descriptions):
         file_name = f'{test_case}{extension}'
