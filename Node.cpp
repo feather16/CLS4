@@ -5,6 +5,51 @@
 
 using namespace std;
 
+#define STR_ID_ARRANGE(str)\
+{#str, Node::Id::str},
+const vector<pair<string, Node::Id>> STR_AND_ID{
+    STR_ID_ARRANGE(program)
+    STR_ID_ARRANGE(func_decl)
+    STR_ID_ARRANGE(statement_list)
+    STR_ID_ARRANGE(statement)
+    STR_ID_ARRANGE(basic_statement)
+    STR_ID_ARRANGE(if_statement)
+    STR_ID_ARRANGE(while_statement)
+    STR_ID_ARRANGE(var_decl)
+    STR_ID_ARRANGE(assignment_like)
+    STR_ID_ARRANGE(expression)
+    STR_ID_ARRANGE(type_name)
+    STR_ID_ARRANGE(func_name)
+    STR_ID_ARRANGE(var_name)
+    STR_ID_ARRANGE(func_call)
+    STR_ID_ARRANGE(return_statement)
+    STR_ID_ARRANGE(built_in_func)
+    STR_ID_ARRANGE(built_in_procedure)
+    STR_ID_ARRANGE(literal)
+    STR_ID_ARRANGE(uint_literal)
+    STR_ID_ARRANGE(string_literal)
+};
+
+// 文字列をNodeのIDに変換
+unordered_map<string, Node::Id> get_str_to_id(){
+    unordered_map<string, Node::Id> str_to_id;
+    for(const pair<string, Node::Id>& p : STR_AND_ID){
+        str_to_id[get<0>(p)] = get<1>(p);
+    }
+    return str_to_id;
+};
+unordered_map<string, Node::Id> Node::str_to_id = get_str_to_id();
+
+// NodeのIDを文字列に変換
+unordered_map<Node::Id, string> get_id_to_str(){
+    unordered_map<Node::Id, string> id_to_str;
+    for(const pair<string, Node::Id>& p : STR_AND_ID){
+        id_to_str[get<1>(p)] = get<0>(p);
+    }
+    return id_to_str;
+};
+unordered_map<Node::Id, string> Node::id_to_str = get_id_to_str();
+
 Node::Node(const string& name){
     this->name = name;
     this->id = str_to_id[name];

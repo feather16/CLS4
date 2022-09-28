@@ -55,55 +55,9 @@ class Node{
     vector<Node>::const_iterator end() const noexcept;
 
     // 文字列をNodeのIDに変換
-    #define NODE_ID_ARRANGE(str)\
-    {#str, Node::Id:: str},
-    static inline unordered_map<string, Id> str_to_id{
-        NODE_ID_ARRANGE(program)
-        NODE_ID_ARRANGE(func_decl)
-        NODE_ID_ARRANGE(statement_list)
-        NODE_ID_ARRANGE(statement)
-        NODE_ID_ARRANGE(basic_statement)
-        NODE_ID_ARRANGE(if_statement)
-        NODE_ID_ARRANGE(while_statement)
-        NODE_ID_ARRANGE(var_decl)
-        NODE_ID_ARRANGE(assignment_like)
-        NODE_ID_ARRANGE(expression)
-        NODE_ID_ARRANGE(type_name)
-        NODE_ID_ARRANGE(func_name)
-        NODE_ID_ARRANGE(var_name)
-        NODE_ID_ARRANGE(func_call)
-        NODE_ID_ARRANGE(return_statement)
-        NODE_ID_ARRANGE(built_in_func)
-        NODE_ID_ARRANGE(built_in_procedure)
-        NODE_ID_ARRANGE(literal)
-        NODE_ID_ARRANGE(uint_literal)
-        NODE_ID_ARRANGE(string_literal)
-    };
+    static unordered_map<string, Id> str_to_id;
 
     // NodeのIDを文字列に変換
-    #define NODE_ID_ARRANGE_R(str)\
-    {Node::Id:: str, #str},
-    static inline unordered_map<Id, string> id_to_str{
-        NODE_ID_ARRANGE_R(program)
-        NODE_ID_ARRANGE_R(func_decl)
-        NODE_ID_ARRANGE_R(statement_list)
-        NODE_ID_ARRANGE_R(statement)
-        NODE_ID_ARRANGE_R(basic_statement)
-        NODE_ID_ARRANGE_R(if_statement)
-        NODE_ID_ARRANGE_R(while_statement)
-        NODE_ID_ARRANGE_R(var_decl)
-        NODE_ID_ARRANGE_R(assignment_like)
-        NODE_ID_ARRANGE_R(expression)
-        NODE_ID_ARRANGE_R(type_name)
-        NODE_ID_ARRANGE_R(func_name)
-        NODE_ID_ARRANGE_R(var_name)
-        NODE_ID_ARRANGE_R(func_call)
-        NODE_ID_ARRANGE_R(return_statement)
-        NODE_ID_ARRANGE_R(built_in_func)
-        NODE_ID_ARRANGE_R(built_in_procedure)
-        NODE_ID_ARRANGE_R(literal)
-        NODE_ID_ARRANGE_R(uint_literal)
-        NODE_ID_ARRANGE_R(string_literal)
-    };
+    static unordered_map<Id, string> id_to_str;
 };
 
