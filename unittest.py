@@ -1,7 +1,6 @@
 # ユニットテストを行う
 
 import os
-from re import sub, template
 import subprocess
 
 def file_equal(path1: str, path2: str) -> bool:
