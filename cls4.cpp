@@ -10,7 +10,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <filesystem>
+
+#include <unistd.h>
 
 using namespace std;
 
@@ -32,9 +33,16 @@ string tolower(string text){
     return text;
 }
 
+const string get_current_directory(){
+    constexpr int BUF_SIZE = 1024;
+    char buf[BUF_SIZE];
+    getcwd(buf, BUF_SIZE);
+    return buf;
+}
+
 string get_base_name(string path){
     path = shape_path(path);
-    string current_path = shape_path(filesystem::current_path().string());
+    string current_path = shape_path(get_current_directory());
     
     // 絶対パスの場合に相対パスに変換
     if(
