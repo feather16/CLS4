@@ -4,4 +4,6 @@
 /unittest/out/*.txt
 /unittest/tree/*.txt
 
+# 実行ファイル
 /cls4
+/cls4.exe
