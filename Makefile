@@ -1,7 +1,7 @@
 # Makefile
  
 PROGRAM = cls4
-OBJS = cls4.o Token.o TokenList.o Node.o SyntaxTree.o Object.o Type.o SymbolTable.o Interpreter.o Error.o
+OBJS = cls4.o Argument.o Token.o TokenList.o Node.o SyntaxTree.o Object.o Type.o SymbolTable.o Interpreter.o Error.o
 COMPILER = g++#-O3
 
 .SUFFIXES: .cpp .o

@@ -6,6 +6,7 @@
 #include "Type.h"
 #include "Object.h"
 #include "Interpreter.h"
+#include "Argument.h"
 
 #include <fstream>
 #include <iostream>
@@ -14,12 +15,6 @@
 #include <unistd.h>
 
 using namespace std;
-
-struct Argument{
-    string interpreter;
-    string filename;
-    string tree_filename;
-} argument;
 
 string shape_path(string path){
     for(int i = 0; i < path.size(); i++){
@@ -59,17 +54,7 @@ string get_base_name(string path){
 }
 
 int main(int argc, char* argv[]){
-    for(int i = 0; i < argc; i++){
-        if(i == 0){
-            argument.interpreter = argv[0];
-        }
-        else if(i == 1){
-            argument.filename = argv[1];
-        }
-        else if(i == 2){
-            argument.tree_filename = argv[2];
-        }
-    }
+    Argument argument(argc, argv);
 
     TokenList tokens;
     SyntaxTree tree;
