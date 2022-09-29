@@ -4,6 +4,7 @@ from email import parser
 import os
 import subprocess
 import argparse
+import platform
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--unittest_dir', type=str)
@@ -28,7 +29,7 @@ OUT_DIR = f'{UNITTEST_DIR}/out'
 ANS_DIR = f'{UNITTEST_DIR}/ans'
 TREE_DIR = f'{UNITTEST_DIR}/tree'
 
-INTERPRETER = 'cls4'
+INTERPRETER = 'cls4' if platform.system() == 'Windows' else './cls4'
 
 # テストの優先順位
 with open(f'{UNITTEST_DIR}/test_priority.txt', encoding='utf-8') as f:
@@ -76,7 +77,11 @@ for test_case in test_cases:
         print('\033[32mo\033[0m', end='') # 緑
     else:
         print('\033[31mx\033[0m', end='') # 赤
-        diff = subprocess.run(f'diff {out_file_path} {ans_file_path}', capture_output=True).stdout.decode('utf-8')
+        diff = subprocess.run(
+            f'diff {out_file_path} {ans_file_path}', 
+            capture_output=True,
+            shell=True,
+        ).stdout.decode('utf-8')
         diffs.append((test_case, diff))
     description = ''
     try:
