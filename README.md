@@ -22,7 +22,12 @@ CLS4という名前の由来は「**C**-**L**ike **S**imple and **S**afe **S**ta
 `make`
 
 ### 実行
+
+#### Windowsの場合
 `cls4 ソースファイル.cls4 [構文木出力ファイル.txt]`
+
+#### Unix系OSの場合
+`./cls4 ソースファイル.cls4 [構文木出力ファイル.txt]`
 
 ### ユニットテスト
 `python unittest.py`
