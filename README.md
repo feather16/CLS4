@@ -16,6 +16,8 @@ CLS4という名前の由来は「**C**-**L**ike **S**imple and **S**afe **S**ta
 
 文法を[grammer.txt](grammer.txt)に記述しています。
 
+実行ファイルは[こちら](https://github.com/feather16/CLS4/releases/tag/v-X-alpha)からダウンロードできます。
+
 ## 実行方法
 
 ### ビルド
