@@ -1,6 +1,5 @@
 # ユニットテストを行う
 
-from email import parser
 import os
 import subprocess
 import argparse
