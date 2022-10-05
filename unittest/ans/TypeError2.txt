@@ -1,1 +1,1 @@
-unittest/src/TypeError2.cls4:5:5:  TypeError: Cannot assign 'bool' to 'int'
+unittest/src/TypeError2.cls4:5:5: TypeError: Cannot assign 'bool' to 'int'

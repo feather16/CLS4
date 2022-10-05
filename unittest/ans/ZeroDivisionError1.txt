@@ -1,1 +1,1 @@
-unittest/src/ZeroDivisionError1.cls4:4:11:  ZeroDivisionError: Division by zero
+unittest/src/ZeroDivisionError1.cls4:4:11: ZeroDivisionError: Division by zero

@@ -1,1 +1,1 @@
-unittest/src/TypeError5.cls4:3:4:  TypeError: Conditional expressions can be only bool, not int
+unittest/src/TypeError5.cls4:3:4: TypeError: Conditional expressions can be only bool, not int

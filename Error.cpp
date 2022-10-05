@@ -11,7 +11,7 @@ void Error::set_name(const string &name){
     if(line != -1 && count != -1){
         what_str += std::to_string(line) + ":" + std::to_string(count) + ": ";
     }
-    what_str += " " + name + ": " + msg;
+    what_str += name + ": " + msg;
 }
 const char* Error::what() const throw(){
     return what_str.c_str();

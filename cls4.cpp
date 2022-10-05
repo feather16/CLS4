@@ -69,6 +69,10 @@ int main(int argc, char* argv[]){
         interpreter.run(tree); // 実行
     }
     catch(const Error& e){
-        cout << get_base_name(argument.filename) << ":" << e.what() << endl;
+        const string base_file_name = get_base_name(argument.filename);
+        if(base_file_name.size() > 0){
+            cout << base_file_name << ":";
+        }
+        cout << e.what() << endl;
     }
 }

@@ -1,2 +1,2 @@
 abc
-unittest/src/SyntaxError2.cls4:5:1:  SyntaxError: return outside function
+unittest/src/SyntaxError2.cls4:5:1: SyntaxError: return outside function
