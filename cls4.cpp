@@ -54,7 +54,14 @@ string get_base_name(string path){
 }
 
 int main(int argc, char* argv[]){
-    Argument argument(argc, argv);
+    Argument argument;
+    try{
+        argument = Argument(argc, argv);
+    }
+    catch(const ArgumentError& e){
+        cout << e.what() << endl;
+        return 1;
+    }
 
     TokenList tokens;
     SyntaxTree tree;

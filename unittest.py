@@ -60,9 +60,9 @@ for test_case in test_cases:
 
     # 実行
     if os.path.exists(stdin_file_path): # 標準入力あり
-        command = f'{INTERPRETER} "{src_file_path}" "{tree_file_path}" < "{stdin_file_path}" > "{out_file_path}" 2>&1'
+        command = f'{INTERPRETER} "{src_file_path}" --tree "{tree_file_path}" < "{stdin_file_path}" > "{out_file_path}" 2>&1'
     else: # 標準入力なし
-        command = f'{INTERPRETER} "{src_file_path}" "{tree_file_path}" > "{out_file_path}" 2>&1'
+        command = f'{INTERPRETER} "{src_file_path}" --tree "{tree_file_path}" > "{out_file_path}" 2>&1'
     os.system(command)
 
     # ansファイルが存在しない場合に作成
