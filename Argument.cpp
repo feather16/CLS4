@@ -21,10 +21,7 @@ Argument::Argument(int argc, char* argv[]){
             const string option = *itr;
             ++itr;
             if(option == "--tree"){
-                if(itr == args.end() || *itr == ""){
-                    throw_error(itr - 1, "Not specified filename");
-                }
-                else if(is_option(*itr)){
+                if(itr == args.end() || *itr == "" || is_option(*itr)){
                     throw_error(itr, "Not specified filename");
                 }
                 tree_filename = *itr;
