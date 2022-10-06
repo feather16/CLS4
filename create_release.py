@@ -12,7 +12,7 @@ def get_time_format() -> str:
     return now.strftime('%Y%m%d%H%M')
 
 def get_git_commit_id() -> str:
-    command = "git log -n 1 --pretty=format:\"%H\""
+    command = f"cd \"{os.path.dirname(__file__)}\" && git log -n 1 --pretty=format:\"%H\""
     commit_id = subprocess.run(
         command, 
         capture_output=True,
@@ -38,7 +38,7 @@ if BUILD:
     build_success = os.system('make clean && make -j') == 0
     if not build_success: exit(0)
 
-url = f"https://github.com/feather16/CLS4/tree/{get_git_commit_id()}"
+github_url = f"https://github.com/feather16/CLS4/tree/{get_git_commit_id()}"
 
 # Releaseディレクトリの作成
 if not os.path.exists(ZIP_DIR_PATH):
@@ -62,6 +62,13 @@ os.mkdir(f'{ZIP_DIR_PATH}/unittest/out')
 os.mkdir(f'{ZIP_DIR_PATH}/unittest/tree')
 copy_to_zip_dir('unittest/README.md')
 copy_to_zip_dir('unittest/test_priority.txt')
+
+# Releaseディレクトリ内にREADME.mdを作成
+with open(f'{ZIP_DIR_PATH}/README.md', 'w', encoding='utf-8') as f:
+    f.write(f'''\
+GitHub:
+<a>{github_url}</a>
+    ''')
 
 # zip圧縮
 shutil.make_archive(os.path.splitext(ZIP_FILE_PATH)[0], 'zip', ZIP_DIR_PATH)
